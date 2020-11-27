@@ -1,0 +1,172 @@
+<input type="checkbox" id="check">
+<label for="check">
+    <i class="fas fa-bars" id="btn"></i>
+    <i class="fas fa-times" id="cancel"></i>
+</label>
+<div [ngClass]="{'sidebar': true, 'list-group': true, 'list-group-flush': true}" id="sidebar-wrapper">
+    <div class="logo-gsm">
+        <img src="./../../../../assets/img/logoBlanc.png" alt="">
+    </div>
+    <header>GSM</header>
+    <div class="nav-user-wrapper">
+        <div class="media">
+            <div class="media-left">
+                <img src="./../assets/img/default-user.png" alt="">
+            </div>
+            <div class="media-body">
+                <span class="media-heading">Ousmane Sakho</span>
+                <div class="text-small">Developper JS FullStack</div>
+            </div>
+            <div class="media-right">
+                <a href="" data-toggle="dropdown">
+                    <i class="fas fa-caret-down"></i>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" routerLink="/login/edit">Voir</a>
+                        <a class="dropdown-item" routerLink="/admins">Gestion des admins</a>
+                        <a class="dropdown-item" routerLink="">Paramètres</a>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="navigation">
+        Navigation principale
+    </div>
+    <a class="list-group-item list-group-item-action" routerLink="/dashboard" routerLinkActive="active">
+        <i class="fas fa-home"></i><span>Tableau de bord</span>
+    </a>
+    <a class="list-group-item list-group-item-action" routerLink="/services" routerLinkActive="active">
+        <i class="fas fa-clipboard-list"></i><span>Services</span>
+    </a>
+    <a class="list-group-item list-group-item-action" routerLink="/clients" routerLinkActive="active">
+        <i class="fas fa-user-alt"></i><span>Clients</span>
+    </a>
+    <a class="list-group-item list-group-item-action" routerLink="/appointment" routerLinkActive="active">
+        <i class="far fa-calendar-alt"></i><span>Render-vous</span>
+    </a>
+    <a class="list-group-item list-group-item-action" routerLink="/vehicles" routerLinkActive="active">
+        <i class="fas fa-car"></i><span>Véhicules</span>
+    </a>
+</div>
+<!-- / nav -->
+<nav>
+    <div class="logo">
+
+    </div>
+    <ul class="navbar-nav">
+        <div class="bar-top"></div>
+        <li class="nav-item dropdown">
+            <span class="nav-link" data-toggle="dropdown">
+                <img src="./assets/img/france.png" alt="" width="30" height="30">
+                <span>Français</span>
+                <!-- <span style="margin-left: 5px;"><i class="fas fa-angle-down"></i></span> -->
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" routerLink="/">Français</a>
+                    <!-- <a class="dropdown-item" routerLink="/admins">Gestion des admins</a>
+                        <a class="dropdown-item" routerLink="/users/new-user">Paramètres</a>
+                        <a class="dropdown-item" (click)="logout()">Déconnexion</a> -->
+                </div>
+            </span>
+        </li>
+    </ul>
+</nav>
+
+<div class="page-container">
+    <div class="container">
+        <h5>Liste des <b>Admins</b></h5>
+        <div class="row">
+            <div class="col-md-12 space20">
+                <button class="btn btn-green" routerLink="new-admin">Ajouter un Admin <i class="fas fa-plus"></i> </button>
+            </div>
+        </div>
+        <table id="dtBasicExample" class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col">Mail</th>
+                    <th scope="col">Mot de passe</th>
+                    <th scope="col">Editer</th>
+                    <th scope="col">Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let admin of admins; let i = index">
+                    <td>{{ admin.lastName }}</td>
+                    <td>{{ admin.firstName }}</td>
+                    <td>{{ admin.email }}</td>
+                    <td>{{ admin.password }}</td>
+                    <td>
+                        <a href="#editEmployeeModal" class="edit" data-toggle="modal" (click)="editAdmin(admin)">
+                            Editer
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal" (click)="editAdmin(admin)">
+                            Supprimer
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Edit Modal HTML -->
+    <div id="editEmployeeModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form #form="ngForm" (ngSubmit)="onUpdateForm(form.value)">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modifier l'administrateur</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Nom</label>
+                            <input type="text" class="form-control" name="lastName" [(ngModel)]="admin.lastName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Prénom</label>
+                            <input type="text" class="form-control" name="firstName" [(ngModel)]="admin.firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" name="email" [(ngModel)]="admin.email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mot de passe</label>
+                            <input type="password" class="form-control" name="password" [(ngModel)]="admin.password"
+                                required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                        <input type="submit" class="btn btn-info" data-dismiss="modal" value="Enregistrer">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Delete Modal HTML -->
+    <div id="deleteEmployeeModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Supprimer un administrateur</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Voulez-vous vraiment supprimer ces enregistrements?</p>
+                        <p class="text-warning"><small>Cette action ne peut pas être annulée.</small></p>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler">
+                        <input type="button" class="btn btn-danger" data-dismiss="modal" (click)="onRemoveAdmin()"
+                            value="Supprimer">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

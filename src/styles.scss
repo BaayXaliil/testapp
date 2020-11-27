@@ -1,0 +1,14 @@
+.navbar-brand {
+    text-align: center;
+    img {
+        width: 100px;
+        height: 30px;
+        margin-left: 20%;
+    }
+}
+
+@media (min-width: 992px) {
+    button.btn.btn-navbar.sidebar-toggle {
+        display: none !important;
+    }
+}

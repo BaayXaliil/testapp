@@ -1,0 +1,155 @@
+
+td span {
+    cursor: pointer;
+}
+
+.btn-wide {
+    min-width: 100px;
+}
+.btn-primary {
+    background-color: #58748B;
+    border-color: #58748B;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.container {
+    .row {
+        .col {
+            h5 {
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .page-container {
+        width: calc(100%);
+        margin-left: 0px;
+        padding: 30px 5px;
+    }
+    nav {
+        background: #15232D;
+        color: white;
+    }
+    .list-group {
+        display: none;
+        width: 70px;
+        transition: all .5s ease;
+        header {
+            font-size: 20px;
+        }
+        a i {
+            margin-left: -10px; 
+        }
+        a:hover {
+            width: 210px;
+            background: inherit;
+        }
+        a:hover span {
+            opacity: 1;
+            visibility: visible;
+        }
+        span {
+            position: absolute;
+            margin-left: 23px;
+            opacity: 0;
+            width: 190px;
+            visibility: hidden;
+        }
+        .navigation {
+            display: none;
+        }
+        
+        .logo-gsm {
+            display: none;
+        }
+    }
+    label #btn {
+        margin: 0;
+        height: 60px;
+        line-height: 55px !important;
+        margin-top: -10px;
+    }
+    .list-group header {
+        display: block;
+    }
+    .page-container {
+        width: 100%;
+        margin-left: 0px;
+    }
+    #check:checked ~ .list-group {
+        display: block;
+    }
+    #check:checked ~ label #btn {
+        margin-left: 70px !important;
+    }
+}
+@media (max-width: 768px) {
+    nav {
+        background: #15232D;
+        color: white;
+    }
+    .list-group {
+        opacity: 0;
+        visibility: hidden;
+    }
+    .page-container {
+        width: 100%;
+        margin-left: 0px;
+    }
+    .container {
+        padding: 0 10px;
+    }
+    label #btn {
+        margin: 0;
+        height: 60px;
+        line-height: 55px !important;
+        margin-top: -10px;
+    }
+    #check:checked ~ label #btn {
+        margin-left: 70px !important;
+    }
+    .sidebar {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+@media (min-width: 768px) {
+
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .container {
+        font-size: 6px;
+        button {
+            font-size: 6px;
+        }
+        th td {
+            font-size: 6px !important;
+        }
+        td a {
+            font-size: 6px !important;
+        }
+        td {
+            padding: 5px;
+        }
+    }
+    .container .table_paginate_paging .pagination .pagination_button a span {
+        padding: 2px 5px;
+        border-radius: 2px;
+    }
+}

@@ -1,0 +1,186 @@
+<input type="checkbox" id="check">
+<label for="check">
+    <i class="fas fa-bars" id="btn"></i>
+    <i class="fas fa-times" id="cancel"></i>
+</label>
+<div [ngClass]="{'sidebar': true, 'list-group': true, 'list-group-flush': true}" id="sidebar-wrapper">
+    <div class="logo-gsm">
+        <img src="./../../../../assets/img/logoBlanc.png" alt="">
+    </div>
+    <header>GSM</header>
+    <div class="nav-user-wrapper">
+        <div class="media">
+            <div class="media-left">
+                <img src="./../assets/img/default-user.png" alt="">
+            </div>
+            <div class="media-body">
+                <span class="media-heading">Ousmane Sakho</span>
+                <div class="text-small">Developper JS FullStack</div>
+            </div>
+            <div class="media-right">
+                <a href="" data-toggle="dropdown">
+                    <i class="fas fa-caret-down"></i>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" routerLink="/login/edit">Voir</a>
+                        <a class="dropdown-item" routerLink="/admins">Gestion des admins</a>
+                        <a class="dropdown-item" routerLink="">Paramètres</a>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="navigation">
+        Navigation principale
+    </div>
+
+    <a class="list-group-item list-group-item-action" routerLink="/services" routerLinkActive="active">
+        <i class="fas fa-clipboard-list"></i><span>Services</span>
+    </a>
+    <a class="list-group-item list-group-item-action" routerLink="/clients" routerLinkActive="active">
+        <i class="fas fa-user-alt"></i><span>Clients</span>
+    </a>
+    <a class="list-group-item list-group-item-action" routerLink="/appointment" routerLinkActive="active">
+        <i class="far fa-calendar-alt"></i><span>Render-vous</span>
+    </a>
+    <a class="list-group-item list-group-item-action" routerLink="/vehicles" routerLinkActive="active">
+        <i class="fas fa-car"></i><span>Véhicules</span>
+    </a>
+</div>
+<!-- / nav -->
+<nav>
+    <div class="logo">
+
+    </div>
+    <ul class="navbar-nav">
+        <div class="bar-top"></div>
+        <li class="nav-item dropdown">
+            <span class="nav-link" data-toggle="dropdown">
+                <img src="./assets/img/france.png" alt="" width="30" height="30">
+                <span>Français</span>
+                <!-- <span style="margin-left: 5px;"><i class="fas fa-angle-down"></i></span> -->
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" routerLink="/">Français</a>
+                    <!-- <a class="dropdown-item" routerLink="/admins">Gestion des admins</a>
+                        <a class="dropdown-item" routerLink="/users/new-user">Paramètres</a>
+                        <a class="dropdown-item" (click)="logout()">Déconnexion</a> -->
+                </div>
+            </span>
+        </li>
+    </ul>
+</nav>
+
+<div class="page-container">
+    <div class="container">
+        <div class="tab-content">
+            <div id="panel_edit_account" class="">
+                <form action="#" role="form" id="form">
+                    <fieldset>
+                        <legend>
+                            information du compte
+                        </legend>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label"> Prénom </label>
+                                    <input type="text" placeholder="Peter" class="form-control" id="firstname"
+                                        name="firstname">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label"> Nom </label>
+                                    <input type="text" placeholder="Clark" class="form-control" id="lastname"
+                                        name="lastname">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label"> Adresse e-mail </label>
+                                    <input type="email" placeholder="peter@example.com" class="form-control" id="email"
+                                        name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label"> N° téléphone </label>
+                                    <input type="email" placeholder="+221 77 222 22 22" class="form-control" id="phone"
+                                        name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label"> Mot de passe </label>
+                                    <input type="password" placeholder="password" class="form-control" name="password"
+                                        id="password">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label"> Confirmer le mot de passe </label>
+                                    <input type="password" placeholder="password" class="form-control"
+                                        id="password_again" name="password_again">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label"> Genre </label>
+                                    <div class="clip-radio radio-primary">
+                                        <input type="radio" value="female" name="gender" id="us-female">
+                                        <label for="us-female"> Femme </label>
+                                        <input type="radio" value="male" name="gender" id="us-male" checked>
+                                        <label for="us-male"> Homme </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label"> Code postal </label>
+                                            <input class="form-control" placeholder="12345" type="text" name="zipcode"
+                                                id="zipcode">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label class="control-label"> Ville </label>
+                                            <input class="form-control tooltips" placeholder="Dakar (SN)" type="text"
+                                                data-original-title="We'll display it when you write reviews"
+                                                data-rel="tooltip" title="" data-placement="top" name="city" id="city">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <!-- <label> Téléchargement d'image </label>-->
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail"><img src="assets/images/avatar-1-xl.jpg"
+                                                alt="">
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                        <div class="user-edit-image-buttons">
+                                            <span class="btn btn-azure btn-file"><span class="fileinput-new"><i
+                                                        class="fa fa-picture"></i> Selectionner une image</span><span
+                                                    class="fileinput-exists"><i class="fa fa-picture"></i> Changer</span>
+                                                <input type="file">
+                                            </span>
+                                            <a href="#" class="btn fileinput-exists btn-red" data-dismiss="fileinput">
+                                                <i class="fa fa-times"></i> Supprimer </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div>
+                                Champs obligatoires
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p>
+                                En cliquant sur MISE À JOUR, vous acceptez la politique et les conditions générales.
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-primary pull-right" type="submit">
+                                Mise à jour <i class="fa fa-arrow-circle-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
